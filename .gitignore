@@ -39,3 +39,7 @@ _sandbox
 
 # Android Studio captures folder
 captures/
+
+# Allure report
+allure-report/
+allure-results/

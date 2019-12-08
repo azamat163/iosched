@@ -21,6 +21,11 @@ apply plugin: 'kotlin-kapt'
 apply plugin: 'androidx.navigation.safeargs.kotlin'
 apply plugin: 'io.fabric'
 
+repositories {
+    mavenCentral()
+    maven { url 'https://dl.bintray.com/qameta/maven' }
+}
+
 android {
     compileSdkVersion rootProject.compileSdkVersion
     defaultConfig {
@@ -29,7 +34,7 @@ android {
         targetSdkVersion rootProject.targetSdkVersion
         versionCode rootProject.versionCodeMobile
         versionName rootProject.versionName
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "io.qameta.allure.espresso.AllureAndroidRunner"
 
         buildConfigField "com.google.android.gms.maps.model.LatLng",
                 "MAP_VIEWPORT_BOUND_NE",
@@ -184,6 +189,11 @@ dependencies {
     androidTestImplementation "androidx.test.ext:junit:$rootProject.testExtVersion"
     androidTestImplementation "androidx.test:runner:$rootProject.runnerVersion"
     androidTestImplementation "androidx.test:rules:$rootProject.rulesVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-idling-resource:$rootProject.espressoVersion"
+    androidTestImplementation "androidx.test.uiautomator:uiautomator:$rootProject.uiautomatorVersion"
+    androidTestImplementation "io.qameta.allure:allure-android-commons:$rootProject.allureVersion"
+    androidTestImplementation "io.qameta.allure:allure-android-model:$rootProject.allureVersion"
+    androidTestImplementation "io.qameta.allure:allure-espresso:$rootProject.allureVersion"
 
     // Local unit tests
     testImplementation "junit:junit:$rootProject.junitVersion"

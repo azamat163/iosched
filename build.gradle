@@ -35,6 +35,8 @@ buildscript {
         androidGradlePluginVersion = '3.4.1'
         appcompatVersion = '1.1.0-beta01'
         activityVersion = '1.0.0-beta01'
+        allureVersion = '2.0.0'
+        uiautomatorVersion = '2.2.0'
         cardviewVersion = '1.0.0'
         archTestingVersion = '2.0.0'
         arcoreVersion = '1.7.0'
@@ -45,7 +47,7 @@ buildscript {
         dagger = "2.24"
         dataBindingCompilerVersion = '3.0.1'
         drawerLayoutVersion = '1.1.0-alpha02'
-        espressoVersion = '3.1.1'
+        espressoVersion = '3.1.0'
         fabricVersion = '1.25.4'
         firebaseAuthVersion = '18.1.0'
         firebaseConfigVersion = '18.0.0'
