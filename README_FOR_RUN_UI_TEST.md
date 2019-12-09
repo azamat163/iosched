@@ -1,4 +1,8 @@
-Тесты располагаются в package mobile, для запуска тестов необходимо build Variants для mobile задать staging.
+Тесты располагаются в package mobile, для запуска тестов необходимо:
+``` 
+build Variants для mobile задать staging.
+```
+
 Ниже расположена архитектура тестов:
 ```
 mobile-|
@@ -17,9 +21,13 @@ mobile-|
                                       |_tests
 ```
 
-Запуск тестов осуществляется по следующей команде:
+Запуск тестов:
+```
 adb shell am instrument -w -r   -e package com.google.samples.apps.iosched.tests.tests -e debug false com.google.samples.apps.iosched.test/io.qameta.allure.espresso.AllureAndroidRunner
+```
 
-Для генерации репорта:
+Генерации репорта:
+```
 adb pull /sdcard/allure-results
 allure generate
+```
