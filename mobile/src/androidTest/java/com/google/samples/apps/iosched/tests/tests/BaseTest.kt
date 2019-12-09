@@ -56,7 +56,7 @@ open class BaseTest {
         clearSharedPref()
     }
 
-    fun clearSharedPref() {
+    private fun clearSharedPref() {
         val sharedPreferences = InstrumentationRegistry
                 .getInstrumentation()
                 .targetContext

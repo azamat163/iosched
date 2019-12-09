@@ -17,27 +17,26 @@
 package com.google.samples.apps.iosched.tests.tests
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import com.google.samples.apps.iosched.tests.pages.HomePage
-import com.google.samples.apps.iosched.tests.pages.OnBoardingPage
+import com.google.samples.apps.iosched.tests.pages.UiAutomatorDemoPage
+
+import junit.framework.Assert.assertTrue
+import org.junit.Ignore
 
 import org.junit.Test
 import org.junit.runner.RunWith
 
 @RunWith(AndroidJUnit4::class)
-class HomeTest: BaseTest() {
-    private val homePage = HomePage()
+class UiAutomatorDemoTest: BaseTest() {
+    val uiAutomatorDemoPage = UiAutomatorDemoPage()
 
+    @Ignore
     @Test
-    fun testCheckCountList() {
-        OnBoardingPage().clickGetStarted()
-        homePage
-                .assertPageDisplayed()
-                .assertAnnouncementsCount()
-    }
-
-    @Test
-    fun testDisplayedItemPositions() {
-        OnBoardingPage().clickGetStarted()
-        homePage.assertRecyclerViewAtPositionView("First item", 1)
+    fun testDemo() {
+        this.mDevice!!.pressHome()
+        uiAutomatorDemoPage.allAppsButton.clickAndWaitForNewWindow()
+        uiAutomatorDemoPage.appsTab.click()
+        uiAutomatorDemoPage.appViews.setAsHorizontalList()
+        uiAutomatorDemoPage.settingsApp.clickAndWaitForNewWindow()
+        assertTrue("Unable to detect Settings", uiAutomatorDemoPage.googleAppValidation.exists())
     }
 }

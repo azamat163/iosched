@@ -16,28 +16,35 @@
 
 package com.google.samples.apps.iosched.tests.tests
 
-import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.google.samples.apps.iosched.tests.pages.HomePage
+import com.google.samples.apps.iosched.tests.pages.InfoEventPage
+import com.google.samples.apps.iosched.tests.pages.NavigationItemPage
 import com.google.samples.apps.iosched.tests.pages.OnBoardingPage
-
 import org.junit.Test
-import org.junit.runner.RunWith
 
-@RunWith(AndroidJUnit4::class)
-class HomeTest: BaseTest() {
-    private val homePage = HomePage()
+class InfoEventTest: BaseTest() {
+    private val infoEventPage = InfoEventPage()
 
     @Test
-    fun testCheckCountList() {
+    fun testCheckContent() {
         OnBoardingPage().clickGetStarted()
-        homePage
+        HomePage().clickMenuBtn()
+        NavigationItemPage()
                 .assertPageDisplayed()
-                .assertAnnouncementsCount()
+                .clickNavigationInfoBtn()
+        infoEventPage.assertPageDisplayed()
     }
 
     @Test
-    fun testDisplayedItemPositions() {
+    fun testScrollToMeals() {
         OnBoardingPage().clickGetStarted()
-        homePage.assertRecyclerViewAtPositionView("First item", 1)
+        HomePage().clickMenuBtn()
+        NavigationItemPage()
+                .assertPageDisplayed()
+                .clickNavigationInfoBtn()
+        infoEventPage
+                .scrollToMeals()
+                .assertEventMealsDisplayed()
     }
+
 }

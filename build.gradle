@@ -87,6 +87,7 @@ buildscript {
         threetenbpVersion = "1.3.6"
         timberVersion = "4.7.1"
         tvproviderVersion = '1.0.0'
+        uiautomatorVersion = '2.2.0'
     }
 
     repositories {

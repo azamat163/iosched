@@ -17,6 +17,7 @@
 package com.google.samples.apps.iosched.tests.pages
 
 import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.*
 
@@ -28,7 +29,7 @@ import com.google.samples.apps.iosched.tests.core.Page
 import io.qameta.allure.android.step
 
 class HomePage: Page {
-    private val count = 5
+    private val ExpectedCount = 5
 
     override fun assertPageDisplayed() = apply {
         step("Assert announcements list page displayed") {
@@ -37,10 +38,11 @@ class HomePage: Page {
     }
 
     val announcementsList = withId(R.id.recyclerView)
+    val menuBtn = withContentDescription("Open navigation drawer")
 
     fun assertAnnouncementsCount() = apply {
         step("Assert announcements count") {
-            onView(announcementsList).check(matches(recyclerViewItemCount(count)))
+            onView(announcementsList).check(matches(recyclerViewItemCount(ExpectedCount)))
         }
     }
 
@@ -50,6 +52,12 @@ class HomePage: Page {
                     expectedText,
                     position
             )))
+        }
+    }
+
+    fun clickMenuBtn() = apply {
+        step("Click menu button") {
+            onView(menuBtn).perform(click())
         }
     }
 }
