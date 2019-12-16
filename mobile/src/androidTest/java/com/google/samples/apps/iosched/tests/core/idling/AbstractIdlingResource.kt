@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.google.samples.apps.iosched.tests.core
+package com.google.samples.apps.iosched.tests.core.idling
 
 import androidx.annotation.Nullable
 import androidx.test.espresso.IdlingResource

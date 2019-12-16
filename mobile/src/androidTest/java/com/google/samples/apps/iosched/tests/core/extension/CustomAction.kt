@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.google.samples.apps.iosched.tests.core
+package com.google.samples.apps.iosched.tests.core.extension
 
 import android.view.View
 import androidx.core.widget.NestedScrollView
@@ -33,7 +33,7 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.view.ViewCompat
 import com.google.android.material.appbar.CollapsingToolbarLayout
 
-class Action {
+class CustomAction {
     companion object {
         fun scrollTo(): ViewAction {
             return object : ViewAction {

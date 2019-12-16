@@ -17,9 +17,10 @@
 package com.google.samples.apps.iosched.tests.pages
 
 import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.contrib.NavigationViewActions
 import androidx.test.espresso.matcher.ViewMatchers.*
+
+import com.aagataev.espresso_page_object.extensions.isDisplayed
 
 import com.google.samples.apps.iosched.R
 import com.google.samples.apps.iosched.tests.core.Page
@@ -31,7 +32,7 @@ class NavigationItemPage: Page {
 
     override fun assertPageDisplayed() = apply {
         step("Assert navigation item page displayed") {
-            onView(navigationView).check(matches(isDisplayed()))
+            navigationView.isDisplayed()
         }
     }
 

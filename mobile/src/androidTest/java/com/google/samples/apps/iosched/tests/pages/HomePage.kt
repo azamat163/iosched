@@ -17,23 +17,27 @@
 package com.google.samples.apps.iosched.tests.pages
 
 import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions.matches
-import androidx.test.espresso.matcher.ViewMatchers.*
+import androidx.test.espresso.matcher.ViewMatchers.withContentDescription
+import androidx.test.espresso.matcher.ViewMatchers.withId
+
+import com.aagataev.espresso_page_object.extensions.click
+import com.aagataev.espresso_page_object.extensions.isDisplayed
 
 import com.google.samples.apps.iosched.R
-import com.google.samples.apps.iosched.tests.core.Matchers.Companion.recyclerViewAtPositionOnView
-import com.google.samples.apps.iosched.tests.core.Matchers.Companion.recyclerViewItemCount
+import com.google.samples.apps.iosched.tests.core.extension.Matchers.Companion.recyclerViewAtPositionOnView
+import com.google.samples.apps.iosched.tests.core.extension.Matchers.Companion.recyclerViewItemCount
 import com.google.samples.apps.iosched.tests.core.Page
+
 
 import io.qameta.allure.android.step
 
 class HomePage: Page {
-    private val ExpectedCount = 5
+    private val expectedCount = 5
 
     override fun assertPageDisplayed() = apply {
         step("Assert announcements list page displayed") {
-            onView(announcementsList).check(matches(isDisplayed()))
+            announcementsList.isDisplayed()
         }
     }
 
@@ -42,7 +46,7 @@ class HomePage: Page {
 
     fun assertAnnouncementsCount() = apply {
         step("Assert announcements count") {
-            onView(announcementsList).check(matches(recyclerViewItemCount(ExpectedCount)))
+            onView(announcementsList).check(matches(recyclerViewItemCount(expectedCount)))
         }
     }
 
@@ -57,7 +61,7 @@ class HomePage: Page {
 
     fun clickMenuBtn() = apply {
         step("Click menu button") {
-            onView(menuBtn).perform(click())
+            menuBtn.click()
         }
     }
 }

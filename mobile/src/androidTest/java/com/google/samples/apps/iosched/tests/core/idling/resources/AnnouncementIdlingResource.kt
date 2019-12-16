@@ -14,15 +14,11 @@
  * limitations under the License.
  */
 
-package com.google.samples.apps.iosched.tests.core
+package com.google.samples.apps.iosched.tests.core.idling.resources
 
-const val RELEASE_BUILD = false;
+import com.google.samples.apps.iosched.tests.core.idling.AbstractIdlingResource
+import com.google.samples.apps.iosched.tests.core.idling.Holder
 
-object IdlingHelper{
-    @JvmStatic
-    fun ifAllowed(resourceAction:() -> Unit){
-        if (!RELEASE_BUILD){
-            resourceAction()
-        }
-    }
+class AnnouncementIdlingResource: AbstractIdlingResource(){
+    companion object : Holder<AnnouncementIdlingResource>(::AnnouncementIdlingResource)
 }

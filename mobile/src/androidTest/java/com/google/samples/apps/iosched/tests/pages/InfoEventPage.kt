@@ -17,13 +17,13 @@
 package com.google.samples.apps.iosched.tests.pages
 
 import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions.matches
 import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withId
+import com.aagataev.espresso_page_object.extensions.isDisplayed
 
 import com.google.samples.apps.iosched.R
-import com.google.samples.apps.iosched.tests.core.Action.Companion.scrollTo
+import com.google.samples.apps.iosched.tests.core.extension.CustomAction.Companion.scrollTo
 import com.google.samples.apps.iosched.tests.core.Page
 import io.qameta.allure.android.step
 
@@ -31,18 +31,13 @@ class InfoEventPage: Page {
 
     override fun assertPageDisplayed() = apply {
         step("Assert info event page displayed ") {
-            onView(eventHeaderText).check(matches(isDisplayed()))
-            onView(eventSession).check(matches(isDisplayed()))
+            eventHeaderText.isDisplayed()
+            eventSession.isDisplayed()
         }
     }
 
-    val nestedScrollView = withId(R.id.scroll_view)
     val eventHeaderText = withId(R.id.event_types_header)
     val eventSession = withId(R.id.event_sessions)
-    val eventSandbox = withId(R.id.event_sandbox)
-    val eventCodelabs = withId(R.id.event_codelabs)
-    val eventOfficehours = withId(R.id.event_officehours)
-    val eventAfterhours = withId(R.id.event_afterhours)
     val eventMeals = withId(R.id.event_meals)
 
 
@@ -54,7 +49,7 @@ class InfoEventPage: Page {
 
     fun assertEventMealsDisplayed() = apply {
         step("Assert event meals") {
-            onView(eventMeals).check(matches(isDisplayed()))
+            eventMeals.isDisplayed()
         }
     }
 }

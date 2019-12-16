@@ -17,13 +17,15 @@
 package com.google.samples.apps.iosched.tests.pages
 
 import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.assertion.ViewAssertions.matches
-import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withId
 
+import com.aagataev.espresso_page_object.extensions.isDisplayed
+import com.aagataev.espresso_page_object.extensions.click
+
+
 import com.google.samples.apps.iosched.R
-import com.google.samples.apps.iosched.tests.core.Matchers.Companion.withCustomText
+import com.google.samples.apps.iosched.tests.core.extension.Matchers.Companion.withCustomText
 import com.google.samples.apps.iosched.tests.core.Page
 
 import io.qameta.allure.android.step
@@ -34,9 +36,9 @@ class OnBoardingPage: Page {
 
     override fun assertPageDisplayed() = apply {
         step("Assert onBoarding page content displayed") {
-            onView(welcomePostText).check(matches(isDisplayed()))
-            onView(getStartedBtn).check(matches(isDisplayed()))
-            onView(io19Image).check(matches(isDisplayed()))
+            welcomePostText.isDisplayed()
+            getStartedBtn.isDisplayed()
+            io19Image.isDisplayed()
         }
     }
 
@@ -58,7 +60,7 @@ class OnBoardingPage: Page {
 
     fun clickGetStarted() = apply {
         step("I click button with name Get Started") {
-            onView(getStartedBtn).perform(click())
+            getStartedBtn.click()
         }
     }
 

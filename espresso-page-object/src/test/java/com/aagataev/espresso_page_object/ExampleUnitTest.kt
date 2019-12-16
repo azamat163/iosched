@@ -14,11 +14,20 @@
  * limitations under the License.
  */
 
-package com.google.samples.apps.iosched.tests.core.resources
+package com.aagataev.espresso_page_object
 
-import com.google.samples.apps.iosched.tests.core.AbstractIdlingResource
-import com.google.samples.apps.iosched.tests.core.Holder
+import org.junit.Test
 
-class AnnouncementIdlingResource: AbstractIdlingResource(){
-    companion object : Holder<AnnouncementIdlingResource>(::AnnouncementIdlingResource)
+import org.junit.Assert.*
+
+/**
+ * Example local unit test, which will execute on the development machine (host).
+ *
+ * See [testing documentation](http://d.android.com/tools/testing).
+ */
+class ExampleUnitTest {
+    @Test
+    fun addition_isCorrect() {
+        assertEquals(4, 2 + 2)
+    }
 }

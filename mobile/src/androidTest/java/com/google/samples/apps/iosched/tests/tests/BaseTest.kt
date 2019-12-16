@@ -17,7 +17,7 @@
 package com.google.samples.apps.iosched.tests.tests
 
 import com.google.samples.apps.iosched.ui.onboarding.OnboardingActivity
-import com.google.samples.apps.iosched.tests.core.resources.AnnouncementIdlingResource
+import com.google.samples.apps.iosched.tests.core.idling.resources.AnnouncementIdlingResource
 
 import io.qameta.allure.espresso.FailshotRule
 

@@ -1,0 +1,3 @@
+package com.aagataev.espresso_page_object.core
+
+interface OperationType

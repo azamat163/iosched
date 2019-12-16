@@ -14,27 +14,15 @@
  * limitations under the License.
  */
 
-package com.google.samples.apps.iosched.tests.core
+package com.google.samples.apps.iosched.tests.core.idling
 
-import androidx.annotation.VisibleForTesting
+const val RELEASE_BUILD = false
 
-open class Holder<out T>(private val constructor: () -> T) {
-
-    @Volatile
-    private var instance: T? = null
-
-    @VisibleForTesting
-    fun getInstanceFromTest(): T? {
-        return when {
-            instance != null -> instance
-            else -> synchronized(this) {
-                instance = constructor()
-                instance
-            }
+object IdlingHelper{
+    @JvmStatic
+    fun ifAllowed(resourceAction:() -> Unit){
+        if (!RELEASE_BUILD){
+            resourceAction()
         }
-    }
-
-    fun getInstanceFromApp(): T? {
-        return instance
     }
 }
