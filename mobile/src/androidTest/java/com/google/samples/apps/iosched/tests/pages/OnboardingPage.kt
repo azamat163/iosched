@@ -27,7 +27,6 @@ import com.aagataev.espresso_page_object.extensions.click
 import com.google.samples.apps.iosched.R
 import com.google.samples.apps.iosched.tests.core.extension.Matchers.Companion.withCustomText
 import com.google.samples.apps.iosched.tests.core.Page
-
 import io.qameta.allure.android.step
 
 class OnBoardingPage: Page {

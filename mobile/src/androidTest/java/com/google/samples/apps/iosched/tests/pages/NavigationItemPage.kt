@@ -24,7 +24,6 @@ import com.aagataev.espresso_page_object.extensions.isDisplayed
 
 import com.google.samples.apps.iosched.R
 import com.google.samples.apps.iosched.tests.core.Page
-
 import io.qameta.allure.android.step
 
 class NavigationItemPage: Page {

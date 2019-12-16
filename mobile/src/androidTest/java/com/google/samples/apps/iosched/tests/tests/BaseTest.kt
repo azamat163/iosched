@@ -24,6 +24,7 @@ import io.qameta.allure.espresso.FailshotRule
 import org.junit.After
 import org.junit.Before
 import org.junit.Rule
+import org.junit.BeforeClass
 
 import android.content.Context
 
@@ -31,6 +32,13 @@ import androidx.test.espresso.IdlingRegistry
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.rule.ActivityTestRule
 import androidx.test.uiautomator.UiDevice
+import com.aagataev.espresso_page_object.core.action.ViewActionLifecycle
+import com.aagataev.espresso_page_object.core.assertion.ViewAssertionLifecycle
+import com.google.samples.apps.iosched.tests.core.ScreenshotLifecycleListener
+import io.qameta.allure.espresso.LogcatClearRule
+import io.qameta.allure.espresso.LogcatDumpRule
+import org.junit.rules.RuleChain
+
 
 open class BaseTest {
     private val idlingRes = AnnouncementIdlingResource.getInstanceFromTest()
@@ -42,6 +50,18 @@ open class BaseTest {
 
     @get:Rule
     val failshot = FailshotRule()
+
+    @get:Rule
+    val ruleChain = RuleChain.outerRule(LogcatClearRule()).around(LogcatDumpRule())
+
+    companion object {
+        @BeforeClass @JvmStatic
+        fun prerareSetup() {
+            val listener = ScreenshotLifecycleListener()
+            ViewActionLifecycle.addListener(listener)
+            ViewAssertionLifecycle.addListener(listener)
+        }
+    }
 
     @Before
     fun setup() {

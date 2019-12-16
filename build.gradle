@@ -34,7 +34,7 @@ buildscript {
         targetSdkVersion = 29
 
         // App dependencies
-        androidGradlePluginVersion = '3.4.1'
+        androidGradlePluginVersion = '3.5.0'
         appcompatVersion = '1.1.0-beta01'
         activityVersion = '1.0.0-beta01'
         allureVersion = '2.0.0'

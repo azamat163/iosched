@@ -17,9 +17,8 @@
 package com.google.samples.apps.iosched.tests.pages
 
 import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.assertion.ViewAssertions.matches
-import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withId
+
 import com.aagataev.espresso_page_object.extensions.isDisplayed
 
 import com.google.samples.apps.iosched.R

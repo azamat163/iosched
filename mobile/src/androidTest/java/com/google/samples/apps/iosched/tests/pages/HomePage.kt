@@ -28,9 +28,8 @@ import com.google.samples.apps.iosched.R
 import com.google.samples.apps.iosched.tests.core.extension.Matchers.Companion.recyclerViewAtPositionOnView
 import com.google.samples.apps.iosched.tests.core.extension.Matchers.Companion.recyclerViewItemCount
 import com.google.samples.apps.iosched.tests.core.Page
-
-
 import io.qameta.allure.android.step
+
 
 class HomePage: Page {
     private val expectedCount = 5
