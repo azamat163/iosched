@@ -31,3 +31,23 @@ adb shell am instrument -w -r   -e package com.google.samples.apps.iosched.tests
 adb pull /sdcard/allure-results
 allure generate
 ```
+
+Espresso Page Object:
+```
+espresso-page-object-|
+                     |_src
+                     |
+                     |_main
+                        |
+                        |_java
+                            |
+                            |_com.aagataev.espresso_page_object
+                                               |
+                                               |_core
+                                               |
+                                               |_extensions
+                                               |
+                                               |_listeners
+                                               |
+                                               |_recycleView
+```
